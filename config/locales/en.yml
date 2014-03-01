@@ -1,0 +1,6 @@
+# English strings go here for Rails i18n
+en:
+  wiki_notifier:
+    notify_users: Notify project members?
+    only_members: Only those users who are members of this project
+  # my_label: "My label"

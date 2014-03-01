@@ -1,0 +1,25 @@
+<% if request.path.include?("documents") #Setting.notified_events.include?('documents_content_updated') %>
+  <style>
+    #documents_notify_groups{
+      display: none;
+    }
+    #documents_notify_groups .block{
+      display: block;
+    }
+  </style>
+  <script>
+    $("#new_document .box:first p:last, #add_attachment_form .box p:last")
+      .after("<%= j render("shared/documents_notifier_checkboxes")%>");
+
+      $("#documents_notifier_notify").on('change', function(){
+        if($(this).is(":checked")){
+          $("#documents_notify_groups").fadeIn();
+        }else{
+          $("#documents_notify_groups").fadeOut();      
+        }
+      });
+      $("#documents_notifier_check_all").on('change', function(){
+        $("#documents_notify_groups input").prop('checked', $(this).is(":checked"));
+      });
+   </script>
+<% end %>
